@@ -5,7 +5,7 @@ namespace Sklep_Internetowy_JW.DAL
 {
     public class FilmsContext : DbContext
     {
-        public DbSet<FilmsContext> Films { get; set; }
+        public DbSet<Film> Films { get; set; }
         public DbSet<Category> Categories{ get; set; }
         public FilmsContext(DbContextOptions options) : base(options)
         {
