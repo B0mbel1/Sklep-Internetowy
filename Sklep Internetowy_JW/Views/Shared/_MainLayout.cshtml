@@ -1,6 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<Category>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">KATEGORIE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                @foreach (var category in Model)
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">@category.Name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
     <title>Bootstrap 5 Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,13 +28,22 @@
 </head>
 <body>
 
+
     <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>My First Bootstrap Page</h1>
         <p>Resize this responsive page to see the effect!</p>
     </div>
-
     <div class="kontener">
         @RenderBody()
+    </div>
+
+
+
+    <div class="mt-5 p-4 bg-dark text=white text-center">
+        <a href="@Url.Action("FooterSites","Home",new{siteName = "Omnie"})">O mnie</a>
+        <a href="@Url.Action("FooterSites","Home",new{siteName = "MetodyPlatnosci"})">metody płatności</a>
+        <a href="@Url.Action("FooterSites","Home",new{siteName = "Regulamin"})">Regulamin</a>
+        <a href="@Url.Action("FooterSites","Home",new{siteName = "Kontakt"})">Kontakt</a>
     </div>
 
 </body>
