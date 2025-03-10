@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sklep_Internetowy_JW.DAL;
 
@@ -11,9 +12,10 @@ using Sklep_Internetowy_JW.DAL;
 namespace Sklep_Internetowy_JW.Migrations
 {
     [DbContext(typeof(FilmsContext))]
-    partial class FilmsContextModelSnapshot : ModelSnapshot
+    [Migration("20250310142344_data")]
+    partial class data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
