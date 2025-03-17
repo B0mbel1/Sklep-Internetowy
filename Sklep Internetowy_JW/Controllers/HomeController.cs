@@ -28,7 +28,9 @@ namespace Sklep_Internetowy_JW.Controllers
 
         public IActionResult FooterSites(string siteName)
         {
-            return View(siteName,new List<Category>());
+            return View(siteName);
         }
+
+
     }
 }
