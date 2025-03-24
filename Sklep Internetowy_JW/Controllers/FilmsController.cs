@@ -22,5 +22,14 @@ namespace Sklep_Internetowy_JW.Controllers
 
             return View(films);
         }
+
+        public IActionResult Details(int filmId)
+        {
+            db.Categories.Find(db.Films.Find(filmId).CategoryId);
+
+            var film = db.Films.Find(filmId);
+
+            return View(film); 
+        }
     }
 }

@@ -6,3 +6,8 @@
 #footer a {
     color: white;
     margin-right: 2px;
+}
+
+td  a {
+    text-decoration: none;
+}
