@@ -22,7 +22,7 @@ namespace Sklep_Internetowy_JW.ViewComponents
 
             if (category != null)
             {
-                films = category.Films.ToList();
+                films = category.Films.OrderBy(f =>f.Title).ToList();
             }
 
             return await Task.FromResult(View("_SideMenu", films));
