@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sklep_Internetowy_JW.DAL;
+using Sklep_Internetowy_JW.Models;
 
 namespace Sklep_Internetowy_JW.Controllers
 {
@@ -31,5 +32,12 @@ namespace Sklep_Internetowy_JW.Controllers
 
             return View(film); 
         }
+        public IActionResult Images()
+        {
+            var films = db.Films.ToList(); 
+            return View(films);
+        }
+
+        //TODO dodać łaną tabele by się wyswietlaly obrazy
     }
 }
