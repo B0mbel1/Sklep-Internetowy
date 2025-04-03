@@ -1,16 +1,19 @@
 ﻿@model IEnumerable<Film>
 
 @{
-    ViewData["Title"] = "Wszystkie Filmy";
+	ViewData["Title"] = "Wszystkie Filmy";
 }
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 p-4 ">
     @foreach (var film in Model)
     {
-        <div class="bg-white shadow-lg rounded-2xl overflow-hidden">
-            <a href="@Url.Action("Details", "Films", new { filmId = film.FilmId })">
-                <img src="~/grafika/@film.Poster" alt="@film.Title" class="w-full h-16 object-cover">
-            </a>
+                <div class="container-fluid bg-white shadow-lg rounded-2xl overflow-hidden">
+           <a href="@Url.Action("Details", "Films", new { filmId = film.FilmId })">
+               <img src="~/grafiki/@film.Poster" alt="@film.Title" class="w-25 h-full ">
+           </a>
+        </div>
+        <div class="p-2 text-center">
+           <h2 class="text-lg font-semibold">@film.Title</h2>
         </div>
     }
 </div>
