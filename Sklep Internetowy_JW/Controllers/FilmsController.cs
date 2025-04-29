@@ -47,16 +47,17 @@ namespace Sklep_Internetowy_JW.Controllers
         [HttpPost]
         public IActionResult AddFilm(AddViewModel model)
         {
-
-
-            var posterFolderPath = Path.Combine(webHost.WebRootPath, "posters");
-            var uniquePosterName = model.Poster.FileName + "_" + Guid.NewGuid() + Path.GetExtension(model.Poster.FileName);
+            var posterFolderPath = Path.Combine(webHost.WebRootPath, "grafiki");
+            //var uniquePosterName = model.Poster.FileName + "_" + Guid.NewGuid() + Path.GetExtension(model.Poster.FileName);
+            var uniquePosterName = Guid.NewGuid() + "_" + model.Poster.FileName;
             var filePath = Path.Combine(posterFolderPath, uniquePosterName);
             model.Poster.CopyTo(new FileStream(filePath, FileMode.Create));
             model.NewFilm.Poster = uniquePosterName;
             db.Films.Add(model.NewFilm);
             db.SaveChanges();
-            return RedirectToAction("AddFilm");
+            //return RedirectToAction("AddFilm");
+
+            return RedirectToAction("Details", new { filmId = model.NewFilm.FilmId });
         }
         public IActionResult Images()
         {
