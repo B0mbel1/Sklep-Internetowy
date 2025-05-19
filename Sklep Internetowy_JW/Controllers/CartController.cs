@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Sklep_Internetowy_JW.DAL;
 using Sklep_Internetowy_JW.Infrastructure;
+using Sklep_Internetowy_JW.Models;
 
 namespace Sklep_Internetowy_JW.Controllers
 {
@@ -27,6 +28,17 @@ namespace Sklep_Internetowy_JW.Controllers
             CartManager.AddToCart(HttpContext.Session, db, filmId);
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult RemoveFromCart(int id)
+        {
+            var model = new RemoveViewModel()
+            {
+                itemQuantity = CartManager.RemoveFromCart(HttpContext.Session, id),
+                itemId = id,
+                cartValue = CartManager.GetCartValue(HttpContext.Session)
+            };
+            return Json(model);
         }
     }
 }
