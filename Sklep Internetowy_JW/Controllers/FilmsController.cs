@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Sklep_Internetowy_JW.DAL;
 using Sklep_Internetowy_JW.Models;
-using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Sklep_Internetowy_JW.Controllers
