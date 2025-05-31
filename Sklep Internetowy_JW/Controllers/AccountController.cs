@@ -79,8 +79,8 @@ namespace Sklep_Internetowy_JW.Controllers
                 {
                     ViewBag.result = "Użytkownik o podanej nazwie już istnieje!";
                 }
-                return View(model);
             }
+            return View(model);
         }
 
         public async Task<IActionResult> Logout()
